@@ -1,24 +1,33 @@
 const webpack = require('webpack'),
     path = require('path');
+    // devServer = require('webpack-dev-server');
 
 const webpackBaseConfig = {
-    entry: './src/index.ts',
+    entry: './src/index.tsx',
+    output: {
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, './dist')
+    },
     devtool: 'inline-source-map',
     module: {
         rules: [
             {
                 test: /\.tsx?$/,
-                use: 'ts-loader',
-                exclude: /node_modules/
+                exclude: /node_modules/,
+                use: [{
+                    loader: "awesome-typescript-loader",
+                }],
+
             }
         ]
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.js']
     },
-    output: {
-        filename: 'bundle.js',
-        path: path.resolve(__dirname, 'dist')
+    devServer: {
+        // contentBase: path.join(__dirname, "dist"),
+        compress: true,
+        port: 9000
     }
 };
 
