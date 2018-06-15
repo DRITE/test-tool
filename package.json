@@ -17,7 +17,13 @@
     "webpack": "webpack -w --mode development"
   },
   "devDependencies": {
+    "@types/react": "^16.3.17",
+    "@types/react-dom": "^16.0.6",
+    "@types/react-redux": "^6.0.2",
     "awesome-typescript-loader": "^5.0.0",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0",
     "ts-jest": "^22.4.6",
     "ts-loader": "^4.4.1",
     "tslib": "^1.9.2",
