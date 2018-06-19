@@ -20,7 +20,7 @@ export class App extends React.Component<IProps, IState> {
     constructor(props: IProps) {
         super(props);
         this.state = {
-            taskSolution: 'kgnslergjns'
+            taskSolution: ''
         }
     }
 
