@@ -1,19 +1,25 @@
 import * as React from 'react';
 
 export interface IProps{
-    text: string;
+    updateSolutionValue: any
 }
+
+
 
 export default class SolutionArea extends React.Component<IProps>{
 
-    shouldComponentUpdate(nextProps: IProps){
-        return this.props.text !== nextProps.text;
-    }
+    // shouldComponentUpdate(nextProps: IProps){
+    //     return this.props.text !== nextProps.text;
+    // }
+
+    onChange = (newValue) => {
+        this.props.updateSolutionValue(newValue)
+    };
 
     render(){
         return(
-            <textarea>
-                {this.props.text}
+            <textarea onChange={this.onChange}>
+                {/*{this.props.text}*/}
             </textarea>
         )
     }

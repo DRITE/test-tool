@@ -1,14 +1,19 @@
 
 export interface IStore {
     taskText: string,
-    taskSolution: string,
+    solutionValue: string,
 }
 
-export interface ISolutionValue {
+export interface ISolutionStore {
     solutionValue: string,
 }
 
 export interface IProduceSelectAction<T>{
     type: string,
     payload?: T
+}
+
+export interface ISolutionAction {
+    type: string,
+    payload?: any
 }
