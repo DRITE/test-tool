@@ -1,14 +1,18 @@
 import {connect} from 'react-redux';
-import {changeSolution} from '../Actions/ActionCreators';
-import SolutionArea from '../Components/SolutionArea';
+import {changeSolutionValue} from '../Actions/ActionCreators'
+import App from '../App';
+import {bindActionCreators} from 'redux';
 
 
-const mapDispatchToProps = (dispatch) => {
+export const mapStateToProps = (store) => {
     return {
-        updateSolutionValue: (value) => {
-            dispatch(changeSolution(value))
-        }
+        solutionValue: store.solutionValue,
     }
 };
 
-export let AppContainer = connect(mapDispatchToProps)(SolutionArea);
+export const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({changeSolutionValue}, dispatch)
+};
+
+
+export let AppContainer = connect(mapStateToProps, mapDispatchToProps)(App);

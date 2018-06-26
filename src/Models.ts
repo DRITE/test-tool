@@ -15,5 +15,5 @@ export interface IProduceSelectAction<T>{
 
 export interface ISolutionAction {
     type: string,
-    payload?: any
+    payload?: string
 }
