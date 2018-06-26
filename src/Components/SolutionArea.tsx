@@ -1,20 +1,27 @@
 import * as React from 'react';
+import TaskTitle from './TaskTitle';
+import SolutionContainer from '../Containers/SolutionContainer';
 
-export interface IProps{
-    text: string;
-}
+// export interface IProps {
+//     solutionValue: string,
+// }
 
-export default class SolutionArea extends React.Component<IProps>{
 
-    shouldComponentUpdate(nextProps: IProps){
-        return this.props.text !== nextProps.text;
-    }
+const SolutionArea = () => {
 
-    render(){
-        return(
-            <textarea>
-                {this.props.text}
-            </textarea>
-        )
-    }
-}
+    // shouldComponentUpdate(nextProps: IProps){
+    //     return this.props.text !== nextProps.text;
+    // }
+
+
+    return (
+        <div>
+            <TaskTitle/>
+            <SolutionContainer/>
+        </div>
+    )
+
+};
+export default SolutionArea;
+
+

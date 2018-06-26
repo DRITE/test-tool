@@ -1,42 +1,44 @@
 import * as React from 'react';
 
-import TaskTitle from './Components/TaskTitle';
-import SolutionArea from './Components/SolutionArea';
+import SolutionContainer from './Containers/SolutionContainer';
 
 export interface IState {
 
-    taskSolution: string;
+    // solutionValue: string;
 }
 
 export interface IProps {
     taskText: string;
+    solutionValue: string;
+
 }
 
-export class App extends React.Component<IProps, IState> {
+const App = () => {
 
-    props: IProps;
-    state: IState;
+    // props: IProps;
+    // state: IState;
 
-    constructor(props: IProps) {
-        super(props);
-        this.state = {
-            taskSolution: 'kgnslergjns'
-        }
-    }
+    // constructor(props: IProps) {
+    //     super(props);
+    //     this.state = {
+    //         solutionValue: ''
+    //     }
+    // }
 
     // onSolutionChange(){
     //     this.setState()
     // }
 
-    render() {
+    {
         return (
             <div>
-                <TaskTitle text={this.props.taskText}/>
-                <p>Введите своё решение ниже:</p>
-                <SolutionArea text={this.state.taskSolution}/>
+                <h1>TEST #2</h1>
+                <SolutionContainer />
             </div>
         )
     }
 
 
-}
+};
+
+export default App;
