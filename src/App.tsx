@@ -1,7 +1,6 @@
 import * as React from 'react';
 
-import TaskTitle from './Components/TaskTitle';
-import SolutionArea from './Components/SolutionArea';
+import SolutionContainer from './Containers/SolutionContainer';
 
 export interface IState {
 
@@ -14,10 +13,10 @@ export interface IProps {
 
 }
 
-export class App extends React.Component<IProps, IState> {
+const App = () => {
 
-    props: IProps;
-    state: IState;
+    // props: IProps;
+    // state: IState;
 
     // constructor(props: IProps) {
     //     super(props);
@@ -30,15 +29,16 @@ export class App extends React.Component<IProps, IState> {
     //     this.setState()
     // }
 
-    render() {
+    {
         return (
             <div>
-                <TaskTitle text={this.props.taskText}/>
-                <p>Введите своё решение ниже:</p>
-                <SolutionArea />
+                <h1>TEST #2</h1>
+                <SolutionContainer />
             </div>
         )
     }
 
 
-}
+};
+
+export default App;

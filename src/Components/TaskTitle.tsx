@@ -4,7 +4,7 @@ export interface IProps{
     text: string;
 }
 
-const TaskTitle : React.SFC<IProps> = (props) => {
+const TaskTitle  = (props) => {
     return <h2>{props.text}</h2>
 };
 
