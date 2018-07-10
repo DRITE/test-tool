@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/redux-logger": "^3.0.6",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-scripts": "1.1.4",
@@ -17,12 +18,15 @@
     "webpack": "webpack -w --mode development"
   },
   "devDependencies": {
+    "@types/es6-promise": "^3.3.0",
     "@types/react": "^16.3.17",
     "@types/react-dom": "^16.0.6",
     "@types/react-redux": "^6.0.2",
     "awesome-typescript-loader": "^5.0.0",
+    "cross-fetch": "^2.2.2",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
+    "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "ts-jest": "^22.4.6",
     "ts-loader": "^4.4.1",
@@ -32,6 +36,7 @@
     "tslint-react": "^3.6.0",
     "typescript": "^2.9.1",
     "webpack-cli": "^3.0.3",
-    "webpack-dev-server": "^3.1.4"
+    "webpack-dev-server": "^3.1.4",
+    "whatwg-fetch": "^2.0.4"
   }
 }

@@ -9,7 +9,6 @@ interface IProps {
 const Solution: React.SFC<IProps> = (props: IProps) => {
     const onChange = (e: React.SyntheticEvent<any>) => {
         const value = (e.target as HTMLTextAreaElement).value;
-        console.log('onChange:', value);
         props.changeSolutionValue(value)
     };
 

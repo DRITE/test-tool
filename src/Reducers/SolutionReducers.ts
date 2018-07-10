@@ -1,11 +1,6 @@
-import { ISolutionAction, ISolutionStore } from '../Models';
+import { ISolutionAction, ISolutionStore} from '../Models';
 import ACTION_TYPES from '../Actions/ActionTypes';
 
-
-// export const initialStore = (): IStore  =>({
-//     solutionValue: '',
-//     taskText: 'taskText'
-// });
 
 export const initialSolution = (): ISolutionStore => {
     return{
