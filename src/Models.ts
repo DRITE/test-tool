@@ -28,3 +28,17 @@ export interface IReceiveTaskJSON {
     taskText: string,
     sourceSample: string
 }
+
+export interface ITestTask extends ITestTaskJSON{
+    type: string
+}
+
+export interface ITestTaskJSON {
+    taskId: number,
+    solutionId: string,
+    solution: string
+}
+
+export interface ITestTaskResult {
+    result: string,
+}

@@ -4,7 +4,7 @@ import * as Redux from 'redux';
 import {Action} from 'redux';
 import {Promise} from 'es6-promise';
 import {Config, getRestActive} from './config';
-import {IReceiveTaskJSON} from './Models';
+import {IReceiveTaskJSON, ITestTaskJSON, ITestTaskResult} from './Models';
 
 
 export function dispatchAsync<TBeginPayload, TSuccessPayload, TErrorPayload>(actionType: string,
@@ -77,8 +77,14 @@ export function getApiUrl(url: string, restActive: boolean = getRestActive()): s
     return restActive ? apiUrl : apiUrl + '/mock';  //FIXME переписать, когда сделаю моки
 }
 
+
+/**
+ * Запрос на получение задачи
+ * @param {number} taskId
+ * @returns {Promise<IReceiveTaskJSON>}
+ */
 export function getTask(taskId: number): Promise<IReceiveTaskJSON> {
-    const url = getApiUrl(`tasks/task?id=${taskId}`);
+    const url = getApiUrl(`tasks/task?taskId=${taskId}`);
     console.log('getTask::url', url);
 
     return new Promise<IReceiveTaskJSON>((resolve, reject) => {
@@ -86,20 +92,50 @@ export function getTask(taskId: number): Promise<IReceiveTaskJSON> {
             url,
             {
                 method: 'GET',
-                // headers: {
-                //     'Access-Control-Allow-Origin': 'Origin'
-                // },
                 mode: 'cors',
                 credentials: 'same-origin'
             }
         )
             .then(
                 data => resolve(data.json()),
-                e => {
-                    console.log('An error occurred.', e);
-                    reject(e)
+                error => {
+                    console.log('getTask:: An error occurred.', error);
+                    reject(error)
                 })
     })
 }
+
+
+/**
+ * Запрос на проверку задачи
+ * @param {ITestTaskJSON} testTaskData решение задачи
+ * @returns {Promise<ITestTaskResult>}
+ */
+export function testTask(testTaskData: ITestTaskJSON): Promise<ITestTaskResult> {
+    const url = getApiUrl('tasks/solution');
+    console.log('testTask::url', url);
+    console.log('testTask::testTaskData', testTaskData);
+
+    return new Promise<ITestTaskResult>( (resolve, reject) => {
+        fetch(
+            url, {
+                method: 'POST',
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(testTaskData)
+            }
+        )
+            .then(
+                result => resolve(result.json()),
+                error => {
+                    console.log('testTask:: An error occurred.', error);
+                    reject(error)
+                }
+            )
+    })
+}
+
 
 

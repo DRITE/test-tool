@@ -7,7 +7,7 @@ import {Provider} from 'react-redux';
 
 import combinedReducers from './Reducers/index';
 import {AppContainer} from './Containers/AppContainer';
-import {getTaskData} from './Actions/ActionCreators';
+import {getTaskData, testTaskSolution} from './Actions/ActionCreators';
 // import {fetchTask, receiveTask, requestTask} from './Actions/ActionCreators';
 // import {fetchTask} from './Actions/ActionCreators';
 
@@ -25,10 +25,20 @@ const store = createStore(
     ),
 );
 
-console.log('Ща пропробудем получить задачу');
 store
     .dispatch(getTaskData(1) as any)
     .then(() => console.log(store.getState()));
+
+function p() {
+    store
+        .dispatch(testTaskSolution({
+            taskId: 1,
+            solutionId: '1',
+            solution: 'tyt ofigennoe reshenie'
+        }) as any)
+        .then(() => console.log(store.getState()))
+};
+setTimeout(p, 3_000);
 
 
 // store.dispatch(requestTask('1'));
