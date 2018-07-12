@@ -30,18 +30,27 @@ function f() {
     .dispatch(getTaskData(1) as any)
     .then(() => console.log(store.getState()));
 }
-setTimeout(f, 2_000);
+setTimeout(f, 1_000);
 
 function p() {
     store
         .dispatch(testTaskSolution({
             taskId: 1,
             solutionId: '1',
-            solution: 'tyt ofigennoe reshenie'
+            solution: `private int calculateMatrix(int[][] array) {
+        int summ = 0;
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                if ((i == j) || (i == (5 - j - 1)))
+                    summ += array[i][j];
+            }
+        }
+        return summ;
+    }`
         }) as any)
         .then(() => console.log(store.getState()))
 }
-setTimeout(p, 3_000);
+setTimeout(p, 1_000);
 
 
 // store.dispatch(requestTask('1'));

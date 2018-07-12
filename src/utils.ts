@@ -115,6 +115,7 @@ export function testTask(testTaskData: ITestTaskJSON): Promise<ITestTaskResult> 
     const url = getApiUrl('tasks/solution');
     console.log('testTask::url', url);
     console.log('testTask::testTaskData', testTaskData);
+    console.log('testTask::testTaskData.stringify', JSON.stringify(testTaskData));
 
     return new Promise<ITestTaskResult>( (resolve, reject) => {
         fetch(

@@ -1,0 +1,31 @@
+html{
+    background-image: url(/public/qqqq.jpg);
+    /*background-repeat: no-repeat;*/
+    background-size: 100%;
+    background-repeat: repeat-y;
+}
+
+textarea{
+    background: rgba(0, 0, 0, 0.7);
+    font-size: 1.2em;
+    font-family: Courier;
+    color: #0eae0d;
+    resize: none;
+    width: 90vw;
+    height: 20vh;
+    margin-left: 3em;
+    position: relative;
+}
+
+h2{
+    text-shadow: 1px 1px 2px black, 0 0 1em white;
+    color: #0eae0d;
+    margin-left: 3em;
+}
+
+p{
+    text-shadow: 1px 1px 2px black, 0 0 1em white;
+    color: #0eae0d;
+    font-size: 1.2em;
+    margin-left: 3em;
+}
