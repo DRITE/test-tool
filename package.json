@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@types/redux-logger": "^3.0.6",
+    "lodash": "^4.17.10",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-scripts": "1.1.4",
@@ -23,7 +24,6 @@
     "@types/react-dom": "^16.0.6",
     "@types/react-redux": "^6.0.2",
     "awesome-typescript-loader": "^5.0.0",
-    "cross-fetch": "^2.2.2",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
     "redux-logger": "^3.0.6",

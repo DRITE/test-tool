@@ -25,9 +25,12 @@ const store = createStore(
     ),
 );
 
-store
+function f() {
+    store
     .dispatch(getTaskData(1) as any)
     .then(() => console.log(store.getState()));
+}
+setTimeout(f, 2_000);
 
 function p() {
     store
@@ -37,7 +40,7 @@ function p() {
             solution: 'tyt ofigennoe reshenie'
         }) as any)
         .then(() => console.log(store.getState()))
-};
+}
 setTimeout(p, 3_000);
 
 

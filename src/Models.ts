@@ -1,7 +1,9 @@
 
 export interface IStore {
+    taskTitle: string,
     taskText: string,
-    solutionValue: string,
+    sourceSample: string,
+    solutionValue?: string,
 }
 
 export interface ISolutionStore {

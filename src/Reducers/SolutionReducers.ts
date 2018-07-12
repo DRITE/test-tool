@@ -25,7 +25,8 @@ export default function solutionReducer(
             };
         default:
             return {
-                ...store
+                ...store,
+                // solutionValue: store.fetctTask.sourceSample
             }
     }
 }
