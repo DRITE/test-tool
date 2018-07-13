@@ -38,7 +38,7 @@ export interface ITestTask extends ITestTaskJSON{
 export interface ITestTaskJSON {
     taskId: number,
     solutionId: string,
-    solution: string
+    solutionValue: string
 }
 
 export interface ITestTaskResult {

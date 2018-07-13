@@ -5,7 +5,7 @@ import Solution from '../Components/Solution';
 
 export const mapStateToProps = (store) => {
     return {
-        solutionValue: store.solutionValue,
+        solutionValue: store.fetchTask.solutionValue,
     }
 };
 
@@ -13,7 +13,7 @@ export const mapDispatchToProps = (dispatch) => {
     return {
         changeSolutionValue: (value: string) => dispatch(changeSolutionValue(value))
     }
-}
+};
 
 const SolutionContainer = connect(mapStateToProps, mapDispatchToProps)(Solution);
 

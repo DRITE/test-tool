@@ -6,6 +6,7 @@ export interface ITaskStore extends IReceiveTaskJSON {
 
     result: string,
     solutionId: string,
+    solutionValue: string,
 }
 
 export const initialTask = (): ITaskStore => {
@@ -18,7 +19,9 @@ export const initialTask = (): ITaskStore => {
         sourceSample: '',
 
         result: '',
-        solutionId: '1'
+        solutionId: '1',
+
+        solutionValue: '',
     }
 };
 
@@ -27,7 +30,7 @@ export type ITaskPayloads = ISolutionAction | ITaskStore;
 
 export const fetchTask = (store: ITaskStore = initialTask(), action: IProduceSelectAction<ITaskPayloads>): ITaskStore => {
     switch (action.type) {
-        // Get Task
+            // Get Task
         case `${ACTION_TYPES.GET_TASK_DATA}_BEGIN`:
         case `${ACTION_TYPES.TEST_TASK_SOLUTION}_BEGIN`:
             return {
@@ -42,7 +45,8 @@ export const fetchTask = (store: ITaskStore = initialTask(), action: IProduceSel
                 taskId: taskPayload.taskId,
                 taskTitle: taskPayload.taskTitle,
                 taskText: taskPayload.taskText,
-                sourceSample: taskPayload.sourceSample
+                sourceSample: taskPayload.sourceSample,
+                solutionValue: taskPayload.sourceSample
             };
         case `${ACTION_TYPES.GET_TASK_DATA}_ERROR`:
             return {
@@ -64,6 +68,13 @@ export const fetchTask = (store: ITaskStore = initialTask(), action: IProduceSel
             return {
                 ...store,
                 isFetching: false
+            };
+            //Solution
+        case ACTION_TYPES.CHANGE_SOLUTION_VALUE:
+            let solutionPayload = action.payload as any;
+            return {
+                ...store,
+                solutionValue: solutionPayload
             };
         default:
             return store

@@ -1,11 +1,11 @@
 import {combineReducers} from 'redux';
-import solutionReducer from './SolutionReducers';
+// import solutionReducer from './SolutionReducers';
 import {fetchTask} from './FetchTaskReducers';
 
 
-const combainedReducers = combineReducers({
-    solution: solutionReducer,
+const combinedReducers = combineReducers({
+    // solution: solutionReducer,
     fetchTask
 });
 
-export default combainedReducers;
+export default combinedReducers;

@@ -13,9 +13,7 @@ const Solution: React.SFC<IProps> = (props: IProps) => {
     };
 
     return (
-        <textarea onChange = {onChange}>
-            {props.solutionValue}
-        </textarea>
+        <textarea value={props.solutionValue} onChange = {onChange}/>
     )
 };
 

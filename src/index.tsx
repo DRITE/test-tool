@@ -6,8 +6,8 @@ import logger from 'redux-logger';
 import {Provider} from 'react-redux';
 
 import combinedReducers from './Reducers/index';
-import {AppContainer} from './Containers/AppContainer';
-import {getTaskData, testTaskSolution} from './Actions/ActionCreators';
+import {AppContainer} from './Containers';
+import { getTaskData } from './Actions/ActionCreators';
 // import {fetchTask, receiveTask, requestTask} from './Actions/ActionCreators';
 // import {fetchTask} from './Actions/ActionCreators';
 
@@ -30,27 +30,27 @@ function f() {
     .dispatch(getTaskData(1) as any)
     .then(() => console.log(store.getState()));
 }
-setTimeout(f, 1_000);
+setTimeout(f, 0);
 
-function p() {
-    store
-        .dispatch(testTaskSolution({
-            taskId: 1,
-            solutionId: '1',
-            solution: `private int calculateMatrix(int[][] array) {
-        int summ = 0;
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 5; j++) {
-                if ((i == j) || (i == (5 - j - 1)))
-                    summ += array[i][j];
-            }
-        }
-        return summ;
-    }`
-        }) as any)
-        .then(() => console.log(store.getState()))
-}
-setTimeout(p, 1_000);
+// function p() {
+//     store
+//         .dispatch(testTaskSolution({
+//             taskId: 1,
+//             solutionId: '1',
+//             solution: `private int calculateMatrix(int[][] array) {
+//         int summ = 0;
+//         for (int i = 0; i < 5; i++) {
+//             for (int j = 0; j < 5; j++) {
+//                 if ((i == j) || (i == (5 - j - 1)))
+//                     summ += array[i][j];
+//             }
+//         }
+//         return summ;
+//     }`
+//         }) as any)
+//         .then(() => console.log(store.getState()))
+// }
+// setTimeout(p, 1_000);
 
 
 // store.dispatch(requestTask('1'));

@@ -12,7 +12,8 @@ export const mapStateToProps = (store):IStore => {
     return {
         taskTitle:  store.fetchTask.taskTitle,
         taskText: store.fetchTask.taskText,
-        sourceSample: store.fetchTask.sourceSample
+        sourceSample: store.fetchTask.sourceSample,
+        solutionValue: store.fetchTask.solutionValue,
     }
 };
 
@@ -21,4 +22,6 @@ export const mapDispatchToProps = (dispatch) => {
 };
 
 
-export let AppContainer = connect(mapStateToProps, mapDispatchToProps)(App);
+let AppContainer = connect(mapStateToProps, mapDispatchToProps)(App);
+
+export default AppContainer;
