@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css?family=Maven+Pro|Open+Sans');
+
+html{
+    background-image: url(/public/qqqq.jpg);
+    /*background-repeat: no-repeat;*/
+    background-size: 100%;
+    background-repeat: repeat-y;
+    font-family: 'Maven Pro', sans-serif;
+}
+
+textarea{
+    background: rgba(0, 0, 0, 0.7);
+    font-size: 1.2em;
+    font-family: Courier;
+    color: #0eae0d;
+    resize: none;
+    width: 89vw;
+    height: 30vh;
+    margin-left: 3em;
+    padding: .9em;
+    position: relative;
+    border: 0px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    outline-offset: 0px !important;
+    outline: none !important;
+}
+
+textarea :focus {
+    background: #fff;
+
+    outline-offset: 0px !important;
+    outline: none !important;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+h2{
+    text-shadow: 1px 1px 2px black, 0 0 1em white;
+    color: #0eae0d;
+    font-size: 1.5em;
+    margin-left: 2.4em;
+    position: relative;
+}
+
+p{
+    text-shadow: 1px 1px 2px black, 0 0 1em white;
+    color: #0eae0d;
+    font-size: 1.2em;
+    margin-left: 3em;
+    margin-right: 3em;
+    text-align: justify;
+}

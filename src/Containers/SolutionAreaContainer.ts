@@ -1,11 +1,11 @@
 import {connect} from 'react-redux';
 import {changeSolutionValue} from '../Actions/ActionCreators';
-import Solution from '../Components/Solution';
+import SolutionArea from '../Components/SolutionArea';
 
 
 export const mapStateToProps = (store) => {
     return {
-        solutionValue: store.solutionValue,
+        solutionValue: store.fetchTask.solutionValue,
     }
 };
 
@@ -13,8 +13,8 @@ export const mapDispatchToProps = (dispatch) => {
     return {
         changeSolutionValue: (value: string) => dispatch(changeSolutionValue(value))
     }
-}
+};
 
-const SolutionContainer = connect(mapStateToProps, mapDispatchToProps)(Solution);
+const SolutionAreaContainer = connect(mapStateToProps, mapDispatchToProps)(SolutionArea);
 
-export default SolutionContainer;
+export default SolutionAreaContainer;

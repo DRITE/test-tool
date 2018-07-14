@@ -1,12 +1,19 @@
 import {connect} from 'react-redux';
+// import * as _ from 'lodash';
 import {changeSolutionValue} from '../Actions/ActionCreators'
 import App from '../App';
 import {bindActionCreators} from 'redux';
+import {IStore} from '../Models';
 
 
-export const mapStateToProps = (store) => {
+export const mapStateToProps = (store):IStore => {
+    // const {taskTitle, taskText, sourceSample} = _.get(store, 'store.', '');
+    console.log('AppContainer::storage', store);
     return {
-        solutionValue: store.solutionValue,
+        taskTitle:  store.fetchTask.taskTitle,
+        taskText: store.fetchTask.taskText,
+        sourceSample: store.fetchTask.sourceSample,
+        solutionValue: store.fetchTask.solutionValue,
     }
 };
 
@@ -15,4 +22,6 @@ export const mapDispatchToProps = (dispatch) => {
 };
 
 
-export let AppContainer = connect(mapStateToProps, mapDispatchToProps)(App);
+let AppContainer = connect(mapStateToProps, mapDispatchToProps)(App);
+
+export default AppContainer;

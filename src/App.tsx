@@ -1,44 +1,27 @@
 import * as React from 'react';
 
-import SolutionContainer from './Containers/SolutionContainer';
-
-export interface IState {
-
-    // solutionValue: string;
-}
+import {
+    SolutionAreaContainer,
+    TestTaskButtonContainer,
+    ResultAreaContainer
+} from './Containers';
 
 export interface IProps {
+    taskTitle: string;
     taskText: string;
-    solutionValue: string;
-
 }
 
-const App = () => {
-
-    // props: IProps;
-    // state: IState;
-
-    // constructor(props: IProps) {
-    //     super(props);
-    //     this.state = {
-    //         solutionValue: ''
-    //     }
-    // }
-
-    // onSolutionChange(){
-    //     this.setState()
-    // }
-
-    {
-        return (
-            <div>
-                <h1>TEST #2</h1>
-                <SolutionContainer />
-            </div>
-        )
-    }
-
-
+const App: React.SFC<IProps> = (props: IProps) => {
+    return (
+        <div>
+            <h2>{props.taskTitle}</h2>
+            <p>{props.taskText}</p>
+            <SolutionAreaContainer/>
+            <TestTaskButtonContainer/>
+            <ResultAreaContainer/>
+        </div>
+    )
 };
+
 
 export default App;
