@@ -1,8 +1,5 @@
-// import {fetch} from 'cross-fetch';
 import ACTION_TYPES from './ActionTypes';
 import * as Models from '../Models';
-// import {ThunkAction} from 'redux-thunk';
-// import {Dispatch} from 'react-redux';
 import {IReceiveTaskJSON, ITestTask, ITestTaskJSON, ITestTaskResult} from '../Models';
 import * as Redux from 'redux';
 import {dispatchAsync, getTask, testTask} from '../utils';
@@ -22,31 +19,6 @@ export function changeSolutionValue(value: string): Models.ISolutionAction {
 }
 
 
-//TODO Скорее всего удалить этот закомменченный кусок
-// /**
-//  * Запрос на получение конкретной задачи
-//  * @param {string} taskId ID задачи
-//  * @returns {ISolutionAction}
-//  */
-// export function requestTask(taskId: string): Models.ISolutionAction {
-//     return {
-//         type: ACTION_TYPES.REQUEST_TASK,
-//         payload: taskId
-//     }
-// }
-//
-// export function receiveTask(json: Models.IReceiveTaskJSON): Models.IReceiveTask {
-//     return {
-//         type: ACTION_TYPES.RECEIVE_TASK,
-//         taskId: json.taskId,
-//         taskTitle: json.taskTitle,
-//         taskText: json.taskText,
-//         sourceSample: json.sourceSample
-//     }
-// }
-//
-// //TODO Написать action creator на ошибку получения задачи
-
 /**
  * Запрос на получение конкретной задачи по taskId
  * @param {number} taskId
@@ -63,10 +35,11 @@ export function getTaskData(
 }
 
 
-//TODO для получения всех задач делать GET на /tasks . Возвращает массив задач (item -- вся инфа по задаче)
-
-
-//TODO для отправки решения POST на /tasks/solution . Возвращает result, который сожержит SUCCESS или StackTrace
+/**
+ * Отправка решения задачи на проверку
+ * @param {ITestTaskJSON} testTaskData
+ * @returns {(dispatch: Dispatch<ITestTask>) => Promise<ITestTaskResult>}
+ */
 export function testTaskSolution(
     testTaskData: ITestTaskJSON
 ): (dispatch: Redux.Dispatch<ITestTask>) => Promise<ITestTaskResult> {
@@ -79,6 +52,14 @@ export function testTaskSolution(
     )
 }
 
+// TODO для получения всех задач делать GET на /tasks . Возвращает массив задач (item -- вся инфа по задаче)
 
-
-//TODO ЕСли успею: добавление задачи, удаление задачи
+/**
+ * Очистка области решения и результата прверки задачи
+ * @returns {ISolutionAction}
+ */
+export function clearSolutionAndResultAreas(): Models.ISolutionAction {
+    return {
+        type: ACTION_TYPES.CLEAR_SOLUTION_AND_RESULT_AREAS
+    }
+}
