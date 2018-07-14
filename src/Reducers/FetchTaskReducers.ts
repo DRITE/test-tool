@@ -76,6 +76,12 @@ export const fetchTask = (store: ITaskStore = initialTask(), action: IProduceSel
                 ...store,
                 solutionValue: solutionPayload
             };
+        case ACTION_TYPES.CLEAR_SOLUTION_AND_RESULT_AREAS:
+            return {
+                ...store,
+                result: '',
+                solutionValue: store.sourceSample
+            };
         default:
             return store
     }

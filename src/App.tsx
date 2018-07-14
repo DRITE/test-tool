@@ -3,7 +3,8 @@ import * as React from 'react';
 import {
     SolutionAreaContainer,
     TestTaskButtonContainer,
-    ResultAreaContainer
+    ResultAreaContainer,
+    ClearSolutionButtonContainer
 } from './Containers';
 
 export interface IProps {
@@ -17,6 +18,7 @@ const App: React.SFC<IProps> = (props: IProps) => {
             <h2>{props.taskTitle}</h2>
             <p>{props.taskText}</p>
             <SolutionAreaContainer/>
+            <ClearSolutionButtonContainer/>
             <TestTaskButtonContainer/>
             <ResultAreaContainer/>
         </div>
