@@ -1,27 +1,21 @@
 import * as React from 'react';
-import TaskTitle from './TaskTitle';
-import SolutionContainer from '../Containers/SolutionContainer';
 
-// export interface IProps {
-//     solutionValue: string,
-// }
+interface IProps {
+    solutionValue: string,
+    changeSolutionValue: (value: string) => void,
+}
 
 
-const SolutionArea = () => {
-
-    // shouldComponentUpdate(nextProps: IProps){
-    //     return this.props.text !== nextProps.text;
-    // }
-
+const SolutionArea: React.SFC<IProps> = (props: IProps) => {
+    const onChange = (e: React.SyntheticEvent<any>) => {
+        const value = (e.target as HTMLTextAreaElement).value;
+        props.changeSolutionValue(value)
+    };
 
     return (
-        <div>
-            <TaskTitle/>
-            <SolutionContainer/>
-        </div>
+        <textarea value={props.solutionValue} onChange = {onChange}/>
     )
-
 };
+
+
 export default SolutionArea;
-
-

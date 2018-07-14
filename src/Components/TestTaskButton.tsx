@@ -5,7 +5,7 @@ export interface IProps extends ITestTaskJSON {
     testTaskSolution: (testTaskData: ITestTaskJSON) => void;
 }
 
-const TestTask: React.SFC<IProps> = (props: IProps) => {
+const TestTaskButton: React.SFC<IProps> = (props: IProps) => {
 
     const handleClick = (e: React.SyntheticEvent<any>) => {
         e.preventDefault();
@@ -24,4 +24,4 @@ const TestTask: React.SFC<IProps> = (props: IProps) => {
     )
 };
 
-export default TestTask;
+export default TestTaskButton;

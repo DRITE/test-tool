@@ -1,9 +1,11 @@
 import AppContainer from './AppContainer';
-import SolutionContainer from './SolutionContainer';
-import TestTaskContainer from './TestTaskContainer';
+import SolutionAreaContainer from './SolutionAreaContainer';
+import TestTaskButtonContainer from './TestTaskButtonContainer';
+import ResultAreaContainer from './ResultAreaContainer';
 
 export {
     AppContainer,
-    SolutionContainer,
-    TestTaskContainer,
+    SolutionAreaContainer,
+    TestTaskButtonContainer,
+    ResultAreaContainer
 }

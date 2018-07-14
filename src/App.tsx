@@ -1,6 +1,10 @@
 import * as React from 'react';
 
-import {SolutionContainer, TestTaskContainer} from './Containers';
+import {
+    SolutionAreaContainer,
+    TestTaskButtonContainer,
+    ResultAreaContainer
+} from './Containers';
 
 export interface IProps {
     taskTitle: string;
@@ -12,8 +16,9 @@ const App: React.SFC<IProps> = (props: IProps) => {
         <div>
             <h2>{props.taskTitle}</h2>
             <p>{props.taskText}</p>
-            <SolutionContainer/>
-            <TestTaskContainer/>
+            <SolutionAreaContainer/>
+            <TestTaskButtonContainer/>
+            <ResultAreaContainer/>
         </div>
     )
 };

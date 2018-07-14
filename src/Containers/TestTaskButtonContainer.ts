@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import {testTaskSolution} from '../Actions/ActionCreators';
 import {ITestTaskJSON} from '../Models';
-import TestTask from '../Components/TestTask';
+import TestTaskButton from '../Components/TestTaskButton';
 
 export const mapStateToProps = (store) => {
     return {
@@ -17,6 +17,6 @@ export const mapDispatchToProps = (dispatch) => {
     }
 };
 
-const TestTaskContainer = connect(mapStateToProps, mapDispatchToProps)(TestTask);
+const TestTaskButtonContainer = connect(mapStateToProps, mapDispatchToProps)(TestTaskButton);
 
-export default TestTaskContainer;
+export default TestTaskButtonContainer;

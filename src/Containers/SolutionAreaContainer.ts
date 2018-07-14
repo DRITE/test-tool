@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import {changeSolutionValue} from '../Actions/ActionCreators';
-import Solution from '../Components/Solution';
+import SolutionArea from '../Components/SolutionArea';
 
 
 export const mapStateToProps = (store) => {
@@ -15,6 +15,6 @@ export const mapDispatchToProps = (dispatch) => {
     }
 };
 
-const SolutionContainer = connect(mapStateToProps, mapDispatchToProps)(Solution);
+const SolutionAreaContainer = connect(mapStateToProps, mapDispatchToProps)(SolutionArea);
 
-export default SolutionContainer;
+export default SolutionAreaContainer;
