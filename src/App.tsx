@@ -18,8 +18,10 @@ const App: React.SFC<IProps> = (props: IProps) => {
             <h2>{props.taskTitle}</h2>
             <p>{props.taskText}</p>
             <SolutionAreaContainer/>
-            <ClearSolutionButtonContainer/>
-            <TestTaskButtonContainer/>
+            <div className={'task_buttons_class'}>
+                <ClearSolutionButtonContainer/>
+                <TestTaskButtonContainer/>
+            </div>
             <ResultAreaContainer/>
         </div>
     )
