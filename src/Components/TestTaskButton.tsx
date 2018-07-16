@@ -18,9 +18,7 @@ const TestTaskButton: React.SFC<IProps> = (props: IProps) => {
     };
 
     return (
-        <div>
-            <button onClick={handleClick}>Отправить</button>
-        </div>
+        <button onClick={handleClick}>Отправить</button>
     )
 };
 
