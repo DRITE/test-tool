@@ -67,6 +67,7 @@ export const fetchTask = (store: ITaskStore = initialTask(), action: IProduceSel
         case `${ACTION_TYPES.TEST_TASK_SOLUTION}_ERROR`:
             return {
                 ...store,
+                result: '',
                 isFetching: false
             };
             //Solution

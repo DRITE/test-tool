@@ -58,6 +58,7 @@ export function dispatchSuccess<T>(actionType: string, dispatch: Redux.Dispatch<
  */
 export function dispatchError<T>(actionType: string, dispatch: Redux.Dispatch<Action>) {
     return (error: T) => {
+        alert(error);
         dispatch({
             type: `${actionType}_ERROR`,
             payload: error
