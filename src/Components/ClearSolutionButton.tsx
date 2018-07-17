@@ -13,7 +13,7 @@ const ClearSolutionButton: React.SFC<IProps> = (props: IProps) => {
     };
 
     return (
-        <button onClick={handleClick}>{
+        <button id={'clear_button_id'} onClick={handleClick}>{
             (props.result === '') ? 'Очистить' : 'Решать снова'
         }
         </button>
