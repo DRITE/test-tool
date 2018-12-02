@@ -1,0 +1,7 @@
+
+{
+  "taskId": 1,
+  "taskTitle": "MatrixSumm",
+  "taskText": "Есть матрица 5х5 случайных натуральных чисел в интервале [0; 9]. Напишите код, подсчитывающий сумму диагоналей этой матрицы. Matrix",
+  "sourceSample": "private int calculateMatrix(int[][] array) {\n    int summ = 0;\n    // enter your code here\n    return summ;\n}"
+}

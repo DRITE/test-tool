@@ -8,7 +8,7 @@ const webpackConfig = require(path.resolve('./webpack.config'));
 
 const app = express();
 
-const SERVER_PORT = 8081;
+const SERVER_PORT = 8080;
 const WEBPACK_PATH = '';
 const WEBPACK_HOST_PORT = `http://localhost:${webpackConfig.devServer.port}`;
 const PROD_SEL_REST = '/corporate/product-selection/rest/v2';
@@ -31,26 +31,40 @@ app.use(bodyParser.urlencoded({extended: true}));
 // Заглушка для Подбора продукта
 app.all(`/*`, function (req, res) {
 
-    const
-
     // FYI:
     // для получение параметров из query можно использовать res.req.query
     // для получения тела POST запроса req.body
 
     // Обработка получения информации по продукту
-    if (_.endsWith(req.url, '/environment/product')) {
-        console.log('Received req to: ', req.url);
-        res.send(requireJson('rest/v2/environment/product/get'));
+    // if (_.endsWith(req.url, '/environment/product')) {
+    //     console.log('Received req to: ', req.url);
+    //     res.send(requireJson('rest/v2/environment/product/get'));
+    // }
+
+    if (_.endsWith(req.url, '/tasks/task?taskId=1')) {
+        console.log('Пришёл запрос на задачу.');
+        res.send(requireJson('task1'))
     }
-    if (req.url.contains('tasks')) {
-        console.log('Req contains tasks');
-        res.send('what of tasks?');
+
+    if (_.endsWith(req.url, '/tasks/solution')){
+
+        // Когда ошибка
+        // -------------
+        // res.send({
+        //     "result": "bad solution"
+        // });
+
+        // Когда решение верное
+        // ----------------------
+        res.send({
+            "result": "Test 1 - success"
+        })
     }
 
     // Получение доступных подсистем
-    if (_.endsWith(req.url, '/getAdministeringSubsystemsInfo')) {
-        console.log('Received req to: ', req.url);
-        res.send(requireJson('rest/v2/getAdministeringSubsystemsInfo/post'));
+    // if (_.endsWith(req.url, '/getAdministeringSubsystemsInfo')) {
+    //     console.log('Received req to: ', req.url);
+    //     res.send(requireJson('rest/v2/getAdministeringSubsystemsInfo/post'));
         // res.send({
         //     success: false,
         //     error: {
@@ -62,78 +76,78 @@ app.all(`/*`, function (req, res) {
         //     }
         // });
 
-    }
+    // }
 
     // Отправка скрипта на сервер
-    if (_.endsWith(req.url, '/uploadScript')) {
-        console.log('Received req to: ', req.url);
-        const { subsystemCode } = req.body;
-
-        switch (subsystemCode) {
-            case 'testSubsystemCode':
-                res.send({
-                    success: false,
-                    error: {
-                        "uuid": "14ca39d5-56b5-418b-a550-31223fa7a3f01",
-                        "code": "FAILURE",
-                        "system": "CORP_PRODUCT_SELECTION",
-                        "title": "Системная ошибка",
-                        "text": "Ошибка при отправке сценария на сервер"
-                    }
-                });
-                break;
-            default:
-                res.send({
-                    success: true
-                })
-        }
-
-
-
-    }
+    // if (_.endsWith(req.url, '/uploadScript')) {
+    //     console.log('Received req to: ', req.url);
+    //     const { subsystemCode } = req.body;
+    //
+    //     switch (subsystemCode) {
+    //         case 'testSubsystemCode':
+    //             res.send({
+    //                 success: false,
+    //                 error: {
+    //                     "uuid": "14ca39d5-56b5-418b-a550-31223fa7a3f01",
+    //                     "code": "FAILURE",
+    //                     "system": "CORP_PRODUCT_SELECTION",
+    //                     "title": "Системная ошибка",
+    //                     "text": "Ошибка при отправке сценария на сервер"
+    //                 }
+    //             });
+    //             break;
+    //         default:
+    //             res.send({
+    //                 success: true
+    //             })
+    //     }
+    //
+    //
+    //
+    // }
 
     // Получение групп скриптов
-    if (_.endsWith(req.url, '/getScriptGroups')) {
-        console.log('Received req to: ', req.url);
-        const { subsystemCode } = req.body;
-
-        switch (subsystemCode) {
-            case 'CORP_PRODUCT_SELECTION':
-                res.send(requireJson('rest/v2/getScriptGroups/post'));
-                break;
-            case 'testSubsystemCode':
-                res.send({
-                    success: true,
-                    body: [
-                        {
-                            "groupName": "Единственная группа скриптов",
-                            "subsystemCode": "testSubsystemCode"
-                        }
-                    ]
-                });
-                break;
-            case 'testSubsystemCode1':
-                res.send({
-                    success: true,
-                    error: {
-                        "uuid": "14ca39d5-56b5-418b-a550-31223fa7a3f01",
-                        "code": "FAILURE",
-                        "system": "CORP_PRODUCT_SELECTION",
-                        "title": "Ошибка при загрузке групп",
-                        "text": "Беда"
-                    }
-                });
-                break;
-            default:
-                res.send({
-                    success: true,
-                    body: [
-                    ]
-                })
-
-        }
-
-    }
+    // if (_.endsWith(req.url, '/getScriptGroups')) {
+    //     console.log('Received req to: ', req.url);
+    //     const { subsystemCode } = req.body;
+    //
+    //     switch (subsystemCode) {
+    //         case 'CORP_PRODUCT_SELECTION':
+    //             res.send(requireJson('rest/v2/getScriptGroups/post'));
+    //             break;
+    //         case 'testSubsystemCode':
+    //             res.send({
+    //                 success: true,
+    //                 body: [
+    //                     {
+    //                         "groupName": "Единственная группа скриптов",
+    //                         "subsystemCode": "testSubsystemCode"
+    //                     }
+    //                 ]
+    //             });
+    //             break;
+    //         case 'testSubsystemCode1':
+    //             res.send({
+    //                 success: true,
+    //                 error: {
+    //                     "uuid": "14ca39d5-56b5-418b-a550-31223fa7a3f01",
+    //                     "code": "FAILURE",
+    //                     "system": "CORP_PRODUCT_SELECTION",
+    //                     "title": "Ошибка при загрузке групп",
+    //                     "text": "Беда"
+    //                 }
+    //             });
+    //             break;
+    //         default:
+    //             res.send({
+    //                 success: true,
+    //                 body: [
+    //                 ]
+    //             })
+    //
+    //     }
+    //
+    // }
 
 });
 // Прокси для сервера webpack

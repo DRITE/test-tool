@@ -7,7 +7,8 @@ const webpack = require('webpack'),
 const buildVariables = require('./buildVariables');
 
 const DEV_PORT = 9000;
-const BACKEND_HOST = '192.168.151.60:8080';
+const BACKEND_HOST = 'localhost:8080';
+// const BACKEND_HOST = '192.168.151.60:8080';
 
 const webpackBaseConfig = {
     entry: {
