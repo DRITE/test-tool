@@ -3,7 +3,6 @@ import 'whatwg-fetch';
 import * as Redux from 'redux';
 import {Action} from 'redux';
 import {Promise} from 'es6-promise';
-import {Config, getRestActive} from './config';
 import {IReceiveTaskJSON, ITestTaskJSON, ITestTaskResult} from './Models';
 
 
@@ -73,9 +72,8 @@ export function dispatchError<T>(actionType: string, dispatch: Redux.Dispatch<Ac
  * @param {string} url Адрес запроса.
  * @param {boolean} [restActive] Активны ли REST-сервисы.
  */
-export function getApiUrl(url: string, restActive: boolean = getRestActive()): string {
-    const apiUrl = `${Config.protocol}://${Config.domain}:${Config.port}/${url}`;
-    return restActive ? apiUrl : apiUrl + '/mock';  //FIXME переписать, когда сделаю моки
+export function getApiUrl(url: string): string {
+    return `/${url}`;
 }
 
 

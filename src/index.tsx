@@ -26,6 +26,7 @@ const store = createStore(
 );
 
 function f() {
+    console.log('qqqqqqqqqqqqqqqq');
     store
     .dispatch(getTaskData(1) as any)
     .then(() => console.log(store.getState()));
