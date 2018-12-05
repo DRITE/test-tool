@@ -24,6 +24,14 @@ export interface IReceiveTask extends IReceiveTaskJSON{
     type: string
 }
 
+/**
+ * Инфа по пришедшей задаче
+ *
+ * @param {Number} taskId ID задачи
+ * @param {String} taskTitle  Заголовок задачи
+ * @param {String} taskText  Текст задачи
+ * @param {String} sourceSample Предзаполненный текст решения
+ */
 export interface IReceiveTaskJSON {
     taskId: number,
     taskTitle: string,
@@ -55,4 +63,12 @@ export interface ITestTaskJSON {
  */
 export interface ITestTaskResult {
     result: string,
+}
+
+/**
+ * Массив задач
+ * @param {Array<IReceiveTaskJSON>}
+ */
+export interface ITasks {
+    tasks: Array<IReceiveTaskJSON>
 }

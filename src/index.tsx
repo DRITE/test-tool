@@ -4,10 +4,12 @@ import {applyMiddleware, createStore} from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import logger from 'redux-logger';
 import {Provider} from 'react-redux';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 import combinedReducers from './Reducers/index';
 import {AppContainer} from './Containers';
-import { getTaskData } from './Actions/ActionCreators';
+import {getTaskData} from './Actions/ActionCreators';
+import {User} from './Components/User';
 // import {fetchTask, receiveTask, requestTask} from './Actions/ActionCreators';
 // import {fetchTask} from './Actions/ActionCreators';
 
@@ -59,7 +61,13 @@ setTimeout(f, 0);
 
 ReactDOM.render(
     <Provider store={store}>
-        <AppContainer/>
+        {/*<AppContainer/>*/}
+        <Router>
+            <div>
+                <Route path='/app' component={AppContainer}/>
+                <Route path='/user' component={User}/>
+            </div>
+        </Router>
     </Provider>,
     document.getElementById('root')
 );
