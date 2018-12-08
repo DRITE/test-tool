@@ -6,10 +6,10 @@ import logger from 'redux-logger';
 import {Provider} from 'react-redux';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
-import combinedReducers from './Reducers/index';
-import {AppContainer} from './Containers';
-import {getTaskData} from './Actions/ActionCreators';
-import {User} from './Components/User';
+import combinedReducers from './app/interview/Reducers/index';
+import {AppContainer} from './app/interview/Containers/index';
+import {getTaskData} from './app/interview/Actions/ActionCreators';
+import {User} from './app/interview/Components/User';
 // import {fetchTask, receiveTask, requestTask} from './Actions/ActionCreators';
 // import {fetchTask} from './Actions/ActionCreators';
 

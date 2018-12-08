@@ -5,7 +5,7 @@ import {
     TestTaskButtonContainer,
     ResultAreaContainer,
     ClearSolutionButtonContainer
-} from './Containers';
+} from './Containers/index';
 
 export interface IProps {
     taskTitle: string;
